@@ -18,6 +18,18 @@ Tips:
 
 import React, { Component } from "react";
 
+class DocumentTitle extends Component {
+  componentDidMount() {
+    document.title = `Todos ${this.props.count}`;
+  }
+  componentDidUpdate() {
+    document.title = `Todos ${this.props.count}`;
+  }
+  render() {
+    return null;
+  }
+}
+
 class App extends Component {
   state = {
     completed: 0,
@@ -30,6 +42,7 @@ class App extends Component {
 
     return (
       <div className="app">
+        <DocumentTitle count={completed} />
         <h1>Todos ({incomplete})</h1>
 
         <form
